@@ -3,6 +3,8 @@ name: Build Mega Life Roleplay APK
 on:
   push:
     branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
   workflow_dispatch:
 
 jobs:
@@ -21,8 +23,7 @@ jobs:
 
       - name: Build APK with Gradle
         run: |
-          chmod +x gradlew
-          ./gradlew assembleRelease --stacktrace
+          gradle assembleRelease --stacktrace
 
       - name: Upload Mega Life Release APK Artifact
         uses: actions/upload-artifact@v4
