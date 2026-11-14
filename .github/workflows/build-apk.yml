@@ -3,8 +3,6 @@ name: Build Mega Life Roleplay APK
 on:
   push:
     branches: [ "main", "master" ]
-  pull_request:
-    branches: [ "main", "master" ]
   workflow_dispatch:
 
 jobs:
@@ -21,20 +19,10 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Install NDK and Build Tools
+      - name: Build APK with Gradle
         run: |
-          export ANDROID_SDK_ROOT=$ANDROID_HOME
-          echo "y" | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --install "ndk;25.2.9519653" "cmake;3.22.1" "platforms;android-34" "build-tools;34.0.0"
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew || true
-
-      - name: Build Release APK
-        run: |
-          ./gradlew assembleRelease --stacktrace || gradle assembleRelease --stacktrace
+          chmod +x gradlew
+          ./gradlew assembleRelease --stacktrace
 
       - name: Upload Mega Life Release APK Artifact
         uses: actions/upload-artifact@v4
