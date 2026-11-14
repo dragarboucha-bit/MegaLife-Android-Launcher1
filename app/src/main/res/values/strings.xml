@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mega Life Roleplay</string>
+    <string name="server_name">Mega Life Roleplay</string>
+    <string name="server_ip_display">mega-life.top:7777</string>
+    <string name="play_now">LAUNCH MEGA LIFE</string>
+    <string name="join_discord">JOIN OFFICIAL DISCORD</string>
+    <string name="nickname_hint">Enter Roleplay Name (e.g. First_Last)</string>
+    <string name="status_checking">QUERYING SERVER...</string>
+    <string name="status_online">ONLINE</string>
+    <string name="status_offline">OFFLINE</string>
+</resources>

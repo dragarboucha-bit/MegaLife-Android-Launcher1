@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark_primary">
+
+    <!-- Blurred Hero Background -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_megalife_hero"
+        android:scaleType="centerCrop"
+        android:alpha="0.45" />
+
+    <!-- Responsive Scrollable Container -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="22dp">
+
+            <!-- Brand Logo & Header -->
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="165dp"
+                android:layout_height="165dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/logo_megalife"
+                android:contentDescription="Mega Life Roleplay Logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="MEGA LIFE ROLEPLAY"
+                android:textColor="@color/text_white"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:text="OFFICIAL ANDROID SA-MP CLIENT • mega-life.top:7777"
+                android:textColor="@color/brand_blue_glow"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <!-- Live Server Status Card -->
+            <LinearLayout
+                android:id="@+id/cardServerStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_glass_card"
+                android:padding="18dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:id="@+id/statusDot"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:background="@drawable/dot_offline" />
+
+                    <TextView
+                        android:id="@+id/tvServerStatusBadge"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="QUERYING SERVER..."
+                        android:textColor="@color/text_gray"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/btnRefreshStatus"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/ic_refresh"
+                        android:contentDescription="Refresh Server Status" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvServerHostname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Mega Life Roleplay"
+                    android:textColor="@color/text_white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvServerGamemode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Endpoint: mega-life.top:7777 (Locked)"
+                    android:textColor="@color/text_gray"
+                    android:textSize="12sp" />
+
+                <!-- Players & Ping Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PLAYERS ONLINE"
+                            android:textColor="@color/text_muted"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPlayersCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="-- / --"
+                            android:textColor="@color/text_white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="end">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="LATENCY (PING)"
+                            android:textColor="@color/text_muted"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPing"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="-- ms"
+                            android:textColor="@color/brand_blue_glow"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Player Slots Fill Bar -->
+                <ProgressBar
+                    android:id="@+id/pbSlotsBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="10dp"
+                    android:max="100"
+                    android:progress="0"
+                    android:progressTint="@color/brand_blue_glow"
+                    android:progressBackgroundTint="#1E293B" />
+            </LinearLayout>
+
+            <!-- Player Identity & Game File Management Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_glass_card"
+                android:padding="18dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CHARACTER ROLEPLAY NAME"
+                    android:textColor="@color/brand_blue_glow"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/etNickname"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_input_field"
+                    android:hint="Firstname_Lastname"
+                    android:textColor="@color/text_white"
+                    android:textColorHint="@color/text_muted"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:singleLine="true"
+                    android:textSize="15sp"
+                    android:inputType="textPersonName" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="12dp">
+
+                    <TextView
+                        android:id="@+id/tvFilesStatus"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Checking GTA SA &amp; Mega Life files..."
+                        android:textColor="@color/text_gray"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/btnConfigureCacheUrl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CDN Settings"
+                        android:textColor="@color/brand_blue_glow"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:padding="4dp" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/pbDownloadProgress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="8dp"
+                    android:max="100"
+                    android:progress="0"
+                    android:progressTint="@color/status_online"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <!-- Prominent PLAY Button (Locked to mega-life.top:7777) -->
+            <Button
+                android:id="@+id/btnPlay"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:background="@drawable/bg_play_button"
+                android:text="PLAY MEGA LIFE ROLEPLAY"
+                android:textColor="@color/text_white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                android:layout_marginBottom="14dp" />
+
+            <!-- Official Discord Integration Button -->
+            <LinearLayout
+                android:id="@+id/btnDiscord"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@drawable/bg_discord_button"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_discord_logo"
+                    android:layout_marginEnd="12dp"
+                    android:contentDescription="Discord Icon" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="JOIN MEGA LIFE DISCORD"
+                        android:textColor="@color/text_white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="discord.gg/nrfgsHCbZ • News, Support &amp; Factions"
+                        android:textColor="#E0E7FF"
+                        android:textSize="10sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mega Life Roleplay Engine v1.0 • Powered by SA-MP / open.mp"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

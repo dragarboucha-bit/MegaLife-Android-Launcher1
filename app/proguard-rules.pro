@@ -1,0 +1,4 @@
+-keep class com.megalife.samp.** { *; }
+-keep class com.nvidia.devtech.** { *; }
+-keep class com.wardrumstudios.utils.** { *; }
+-dontwarn com.megalife.samp.**
